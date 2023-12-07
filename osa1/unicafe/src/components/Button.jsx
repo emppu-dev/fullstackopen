@@ -1,6 +1,6 @@
-const Button = ({ clickFunction, text }) => (
-    <button onClick={clickFunction}>
-      {text}
+const Button = (props) => (
+    <button onClick={props.clickFunction}>
+      {props.text}
     </button>
 );
 

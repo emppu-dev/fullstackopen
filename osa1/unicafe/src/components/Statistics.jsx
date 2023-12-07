@@ -1,7 +1,9 @@
-const Statistics = ({ good, neutral, bad }) => {
-    const total = good + neutral + bad;
-    const average = (good - bad) / total || 0;
-    const positivePercentage = (good / total) * 100 || 0;
+import StatisticLine from "./StatisticLine";
+
+const Statistics = ( props ) => {
+    const total = props.good + props.neutral + props.bad;
+    const average = (props.good - props.bad) / total || 0;
+    const positivePercentage = (props.good / total) * 100 || 0;
     if (total === 0) {
         return (
         <div>
@@ -13,12 +15,16 @@ const Statistics = ({ good, neutral, bad }) => {
     return (
       <div>
         <h1>statistics</h1>
-        <p>good {good}</p>
-        <p>neutral {neutral}</p>
-        <p>bad {bad}</p>
-        <p>total {total}</p>
-        <p>average {average}</p>
-        <p>positive feedback {positivePercentage.toFixed(2)}%</p>
+        <table>
+            <tbody>
+                <StatisticLine text="good" value={props.good}/>
+                <StatisticLine text="neutral" value={props.neutral}/>
+                <StatisticLine text="bad" value={props.bad}/>
+                <StatisticLine text="total" value={total}/>
+                <StatisticLine text="average" value={average}/>
+                <StatisticLine text="positive feedback" value={positivePercentage.toFixed(2)+"%"}/>
+            </tbody>
+        </table>
       </div>
     );
 };
