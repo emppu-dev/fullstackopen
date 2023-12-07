@@ -26,11 +26,12 @@ const App = () => {
   return (
     <div>
       <div>
-
+        <h1>give feedback</h1>
         <Button clickFunction={handleGood} text='good' />
         <Button clickFunction={handleNeutral} text='neutral' />
         <Button clickFunction={handleBad} text='bad' />
         <br />
+        <h1>statistics</h1>
         <p>good {good}</p>
         <p>neutral {neutral}</p>
         <p>bad {bad}</p>
